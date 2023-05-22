@@ -1,0 +1,32 @@
+name: 'Enterprise Scan Action'
+description: 'Runs an Enterprise scan against a target site'
+author: 'PortSwigger'
+
+inputs:
+  enterprise-server-url:
+    description: 'The URL of your Enterprise server.'
+    required: false
+  enterprise-api-key:
+    description: 'The API key that you copied when you created an API user.'
+    required: false
+  start-url:
+    description: 'The URL of the website you want Burp Scanner to scan.'
+    required: false
+  correlation-id:
+    description: 'You only need to input a correlation ID if you want to view the scan results on the Burp Suite Enterprise Edition web interface. You can use a text string up to 64 characters long.'
+    required: false
+  report-file-path:
+    description: 'The filename used for the scan report. This filepath relates to the enterprise scan container.'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    BURP_ENTERPRISE_SERVER_URL: ${{ inputs.enterprise-server-url }}
+    BURP_ENTERPRISE_API_KEY: ${{ inputs.enterprise-api-key }}
+    BURP_START_URL: ${{ inputs.start-url }}
+    BURP_CORRELATION_ID: ${{ inputs.correlation-id }}
+    BURP_REPORT_FILE_PATH: ${{ inputs.report-file-path }}
+branding:
+  icon: 'activity'
+  color: 'green'
