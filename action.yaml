@@ -1,4 +1,4 @@
-name: 'Enterprise Scan Action'
+name: 'Enterprise Scan Container Action'
 description: 'Runs an Enterprise scan against a target site'
 author: 'PortSwigger'
 
@@ -18,6 +18,9 @@ inputs:
   report-file-path:
     description: 'The filename used for the scan report. This filepath relates to the enterprise scan container.'
     required: false
+  config-file-path:
+    description: 'The file path of your burp config file, this path must be an absolute path.'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -27,6 +30,7 @@ runs:
     BURP_START_URL: ${{ inputs.start-url }}
     BURP_CORRELATION_ID: ${{ inputs.correlation-id }}
     BURP_REPORT_FILE_PATH: ${{ inputs.report-file-path }}
+    BURP_CONFIG_FILE_PATH: ${{ inputs.config-file-path }}
 branding:
   icon: 'activity'
   color: 'green'
