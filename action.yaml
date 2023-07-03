@@ -1,4 +1,4 @@
-name: 'Enterprise Scan Container Action'
+name: 'ci-driven-scan-github-action'
 description: 'Runs an Enterprise scan against a target site'
 author: 'PortSwigger'
 
