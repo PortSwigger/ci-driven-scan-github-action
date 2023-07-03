@@ -1,6 +1,6 @@
-# Decentralized scan container Action
+# CI-driven scan Action
 
-This action enables you to integrate vulnerability scans into your CI/CD pipeline. A decentralized scan container runs Burp Scanner from a Docker container on a CI/CD platform agent node. 
+This action enables you to integrate vulnerability scans into your CI/CD pipeline. A CI-driven scan runs Burp Scanner from a Docker container on a CI/CD platform agent node. 
 
 On completion, it generates a JUnit XML report about the vulnerabilities found. This report includes:
 * The locations of the vulnerabilities
@@ -8,14 +8,14 @@ On completion, it generates a JUnit XML report about the vulnerabilities found. 
 * Links to our learning resources, with remediation advice
 
 
-In order to use this action you need an installation of Burp Suite Enterprise Edition. You need to create an API user with the External Scan Initiator role and provide the API key to this action. To learn more, see [Creating API users](https://portswigger.net/burp/documentation/enterprise/api-documentation/create-api-user.html).
+In order to use this action you need an installation of Burp Suite Enterprise Edition. You need to create an API user with the CI-driven scan initiator role and provide the API key to this action. To learn more, see [Creating API users](https://portswigger.net/burp/documentation/enterprise/api-documentation/create-api-user.html).
 
-## About decentralized scan containers
+## About CI-driven scans
 * Easily integrate Burp Suite Enterprise Edition with your CI/CD pipeline
 * Run Burp Scanner directly from your CI/CD platform
 * Supports [login details and recorded login sequences](https://portswigger.net/burp/documentation/enterprise/working-with-sites/configure-logins/)
 
-For full documentation about decentralized scan containers, please see [Integrating decentralized scan containers](https://portswigger.net/burp/documentation/enterprise/integrate-ci-cd-platforms/decentralized-scan-containers/index.html).
+For full documentation about CI-driven scans, please see [Integrating CI-driven scans](https://portswigger.net/burp/documentation/enterprise/integrate-ci-cd-platforms/ci-driven-scans).
 
 
 ## Inputs
@@ -62,8 +62,8 @@ vulnerable web application designed for testing web vulnerability scanners.
 
 ```
 steps:
-  - name: Run Enterprise Scan Action Step
-    uses: PortSwigger/decentralized-scan-github-action@main
+  - name: Run CI-driven scan Action Step
+    uses: PortSwigger/ci-driven-scan-github-action@main
     with:
       enterprise-server-url: <your-enterprise-installation-url>
       enterprise-api-key: <your-enterprise-installation-api-key>
@@ -77,7 +77,7 @@ Burp Scanner. By default, the report is saved as `burp_junit_report.xml` in the 
 
 You can use a configuration file to set more advanced options.
 
-Create a configuration file and save it as `burp_config.yml` in the root of your repository. To learn more, see https://portswigger.net/burp/documentation/enterprise/integrate-ci-cd-platforms/decentralized-scan-containers/create-config.html
+Create a configuration file and save it as `burp_config.yml` in the root of your repository. To learn more, see https://portswigger.net/burp/documentation/enterprise/integrate-ci-cd-platforms/ci-driven-scans/create-config
 
 Make sure you include the server URL, API key, and at least one Start URL.
 
@@ -86,8 +86,8 @@ steps:
   - name: Checkout
     uses: actions/checkout@v3
 
-  - name: Run Enterprise Scan Action Step
-    uses: PortSwigger/decentralized-scan-github-action@main
+  - name: Run CI-driven scan Action Step
+    uses: PortSwigger/ci-driven-scan-github-action@main
 
   # You can replace this next step with any JUnit XML parser.
   - name: Publish Test Report
