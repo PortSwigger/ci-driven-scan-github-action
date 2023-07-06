@@ -17,11 +17,11 @@ Inputs can be used to provide values to the container. If you use a configuratio
 
 ### `enterprise-server-url`
 
-The URL supplied with your PortSwigger account
+The URL supplied with your PortSwigger account.
 
 ### `enterprise-api-key`
 
-The API key supplied with your PortSwigger account
+The API key supplied with your PortSwigger account.
 
 ### `start-url`
 
