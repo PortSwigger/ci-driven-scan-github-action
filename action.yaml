@@ -18,8 +18,10 @@ inputs:
   report-file-path:
     description: 'The filename used for the scan report. This filepath relates to the enterprise scan container.'
     required: false
+    default: ./burp_junit_report.xml
   config-file-path:
     description: 'The file path of your burp config file, this path must be an absolute path.'
+    default: ./burp_config.yml
     required: false
 runs:
   using: 'docker'
