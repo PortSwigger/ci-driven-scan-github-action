@@ -1,3 +1,3 @@
-FROM ghcr.io/portswigger-cloud/ci-driven-scanner:latest
+FROM public.ecr.aws/portswigger/enterprise-scan-container:latest
 
 USER root
