@@ -1,0 +1,2 @@
+- name: ci-driven-scan-github-action
+  uses: PortSwigger/ci-driven-scan-github-action@v1.0.2
