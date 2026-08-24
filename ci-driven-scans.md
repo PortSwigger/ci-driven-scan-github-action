@@ -85,9 +85,12 @@ steps:
     uses: PortSwigger/ci-driven-scan-github-action@main
 
   # You can replace this next step with any JUnit XML parser.
+  # Note: mikepenz/action-junit-report is a third-party action that is not maintained by PortSwigger.
+  # It is shown here as an example only. We recommend that you use a GitHub Action you trust, and
+  # pin it to a full-length commit SHA.
   - name: Publish Test Report
-    if: always()                                    # Forces this step to always run
-    uses: mikepenz/action-junit-report@v3
+    if: always() # Forces this step to always run
+    uses: mikepenz/action-junit-report@150e2f992e4fad1379da2056d1d1c279f520e058 # v3.8.0
     with:
       report_paths: 'burp_junit_report.xml'
       fail_on_failure: false
